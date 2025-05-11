@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const dotenv_1 = require("./helpers/dotenv");
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const DBconnect_1 = require("./db/DBconnect");
+const Auth_route_1 = __importDefault(require("./routes/Auth.route"));
+(0, DBconnect_1.connect)();
+const app = (0, express_1.default)();
+app.use(express_1.default.json());
+app.use((0, cookie_parser_1.default)());
+app.get(`${dotenv_1.Start}/healthcheck`, (req, res) => {
+    console.log("hitting");
+    res.json({ message: "working" });
+});
+app.use(`${dotenv_1.Start}/auth`, Auth_route_1.default);
+console.log(dotenv_1.port);
+app.listen(dotenv_1.port || 4000, () => {
+    console.log("lisening nicely");
+});
