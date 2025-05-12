@@ -19,6 +19,7 @@ const responce_1 = require("../helpers/responce");
 const createTranscript = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const link = Interface_1.linkinterface.parse(req.body);
+        const title = req.body.title;
         const InputData = req.body.Link;
         const input = req.body.type;
         const userId = req.userId;
@@ -28,6 +29,7 @@ const createTranscript = (req, res, next) => __awaiter(void 0, void 0, void 0, f
         }
         const datq = yield Client_1.default.link.create({
             data: {
+                title: title,
                 linkUrl: InputData,
                 type: input,
                 userid: parseInt(userId)

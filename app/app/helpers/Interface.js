@@ -10,7 +10,8 @@ const signupinteface = zod_1.z.object({
 exports.signupinteface = signupinteface;
 const signininteface = zod_1.z.object({
     password: zod_1.z.string(),
-    username: zod_1.z.string()
+    //  username:z.string(),
+    email: zod_1.z.string(),
 });
 exports.signininteface = signininteface;
 const linkinterface = zod_1.z.object({

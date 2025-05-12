@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteLink = exports.createLink = void 0;
+exports.getalllinks = exports.deleteLink = exports.createLink = void 0;
 const Client_1 = __importDefault(require("../helpers/Client"));
 const responce_1 = require("../helpers/responce");
 const Interface_1 = require("../helpers/Interface");
@@ -87,3 +87,20 @@ const createLink = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.createLink = createLink;
 exports.default = createLink;
+const getalllinks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userId = req.userId;
+    if (!userId)
+        return;
+    const datq = yield Client_1.default.link.findMany({
+        where: {
+            userid: parseInt(userId)
+        }
+    });
+    res.status(200).json({
+        status: 200,
+        message: "Nicely done",
+        data: datq,
+        frontend: "Fetch from backend done"
+    });
+});
+exports.getalllinks = getalllinks;

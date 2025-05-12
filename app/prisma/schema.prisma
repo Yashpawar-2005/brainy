@@ -27,6 +27,8 @@ model User {
 model Link{
   id Int @id @default(autoincrement())
   linkUrl String
+  title String @default("Default Title")
+  videoId String?
   type Type @default(Twitter)
   userid Int
   linkrelation User @relation(fields: [userid],references: [id])

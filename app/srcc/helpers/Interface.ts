@@ -17,7 +17,8 @@ const signupinteface = z.object({
 const signininteface = z.object({
     
     password:z.string(),
-   username:z.string()
+  //  username:z.string(),
+   email:z.string(),
   });
 
 const linkinterface = z.object({

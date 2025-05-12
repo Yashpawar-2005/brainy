@@ -101,4 +101,22 @@ const createLink = async (req: Request, res: Response) => {
 
 export default createLink;
 
-export {createLink,deleteLink}
+
+const getalllinks=async (req: Request, res: Response) => {
+    const userId=req.userId;
+    if(!userId)return;
+    const datq=await client.link.findMany({
+        where:{
+            userid:parseInt(userId)
+        }
+    })
+     res.status(200).json({
+            status: 200,
+            message: "Nicely done",
+            data:datq,
+            frontend: "Fetch from backend done"
+        });
+}
+
+
+export {createLink,deleteLink,getalllinks}

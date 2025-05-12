@@ -54,7 +54,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const Inputdata = Interface_1.signininteface.parse(req.body);
         const user = yield Client_1.default.user.findUnique({
             where: {
-                username: Inputdata.username
+                email: Inputdata.email
             }
         });
         if (!user) {

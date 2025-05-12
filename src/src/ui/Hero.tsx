@@ -6,7 +6,13 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <div className='h-screen p-0 text-white flex justify-center items-center flex-col'>
-        <div className='min-h-[60vh]'></div>
+        <div className='h-[60vh] w-full z-0 bg-black'>
+          <Spline
+            scene="https://prod.spline.design/GWAqDdWbsszo30mX/scene.splinecode" 
+            className='w-full h-full'
+          />
+        </div>
+        {/* <div className='min-h-[60vh]'></div> */}
         <div className="text-white py-12 px-4 sm:px-6 md:px-8 bg-black w-full h-full">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tighter">
@@ -18,20 +24,14 @@ const Hero = () => {
               Brainy
             </p>
             <div className='space-x-4 mt-6'>
-          <Link to="/login">
-            <Button>Login</Button>
+          <Link to="/auth">
+            <Button>GET STARTED</Button>
           </Link>
-          <Link to="/signup">
+          {/* <Link to="/signup">
             <Button className="ml-4">Signup</Button>
-          </Link>
+          </Link> */}
             </div>
           </div>
-        </div>
-        <div className='h-screen absolute -top-32 left-0 w-screen -z-10 bg-black'>
-          <Spline
-            scene="https://prod.spline.design/GWAqDdWbsszo30mX/scene.splinecode" 
-            className='w-full h-full'
-          />
         </div>
     </div>
   )

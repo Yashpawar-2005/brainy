@@ -1033,6 +1033,7 @@ export namespace Prisma {
     username: string | null
     password: string | null
     sharableLink: string | null
+    createdAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1041,6 +1042,7 @@ export namespace Prisma {
     username: string | null
     password: string | null
     sharableLink: string | null
+    createdAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1049,6 +1051,7 @@ export namespace Prisma {
     username: number
     password: number
     sharableLink: number
+    createdAt: number
     _all: number
   }
 
@@ -1067,6 +1070,7 @@ export namespace Prisma {
     username?: true
     password?: true
     sharableLink?: true
+    createdAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1075,6 +1079,7 @@ export namespace Prisma {
     username?: true
     password?: true
     sharableLink?: true
+    createdAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1083,6 +1088,7 @@ export namespace Prisma {
     username?: true
     password?: true
     sharableLink?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -1178,6 +1184,7 @@ export namespace Prisma {
     username: string
     password: string
     sharableLink: string | null
+    createdAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1205,6 +1212,7 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     sharableLink?: boolean
+    createdAt?: boolean
     Links?: boolean | User$LinksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -1215,6 +1223,7 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     sharableLink?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1223,6 +1232,7 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     sharableLink?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1231,9 +1241,10 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     sharableLink?: boolean
+    createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "password" | "sharableLink", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "password" | "sharableLink" | "createdAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Links?: boolean | User$LinksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1252,6 +1263,7 @@ export namespace Prisma {
       username: string
       password: string
       sharableLink: string | null
+      createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1681,6 +1693,7 @@ export namespace Prisma {
     readonly username: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly sharableLink: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -2136,22 +2149,31 @@ export namespace Prisma {
   export type LinkMinAggregateOutputType = {
     id: number | null
     linkUrl: string | null
+    title: string | null
+    videoId: string | null
     type: $Enums.Type | null
     userid: number | null
+    createdAt: Date | null
   }
 
   export type LinkMaxAggregateOutputType = {
     id: number | null
     linkUrl: string | null
+    title: string | null
+    videoId: string | null
     type: $Enums.Type | null
     userid: number | null
+    createdAt: Date | null
   }
 
   export type LinkCountAggregateOutputType = {
     id: number
     linkUrl: number
+    title: number
+    videoId: number
     type: number
     userid: number
+    createdAt: number
     _all: number
   }
 
@@ -2169,22 +2191,31 @@ export namespace Prisma {
   export type LinkMinAggregateInputType = {
     id?: true
     linkUrl?: true
+    title?: true
+    videoId?: true
     type?: true
     userid?: true
+    createdAt?: true
   }
 
   export type LinkMaxAggregateInputType = {
     id?: true
     linkUrl?: true
+    title?: true
+    videoId?: true
     type?: true
     userid?: true
+    createdAt?: true
   }
 
   export type LinkCountAggregateInputType = {
     id?: true
     linkUrl?: true
+    title?: true
+    videoId?: true
     type?: true
     userid?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -2277,8 +2308,11 @@ export namespace Prisma {
   export type LinkGroupByOutputType = {
     id: number
     linkUrl: string
+    title: string
+    videoId: string | null
     type: $Enums.Type
     userid: number
+    createdAt: Date
     _count: LinkCountAggregateOutputType | null
     _avg: LinkAvgAggregateOutputType | null
     _sum: LinkSumAggregateOutputType | null
@@ -2303,35 +2337,47 @@ export namespace Prisma {
   export type LinkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     linkUrl?: boolean
+    title?: boolean
+    videoId?: boolean
     type?: boolean
     userid?: boolean
+    createdAt?: boolean
     linkrelation?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["link"]>
 
   export type LinkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     linkUrl?: boolean
+    title?: boolean
+    videoId?: boolean
     type?: boolean
     userid?: boolean
+    createdAt?: boolean
     linkrelation?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["link"]>
 
   export type LinkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     linkUrl?: boolean
+    title?: boolean
+    videoId?: boolean
     type?: boolean
     userid?: boolean
+    createdAt?: boolean
     linkrelation?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["link"]>
 
   export type LinkSelectScalar = {
     id?: boolean
     linkUrl?: boolean
+    title?: boolean
+    videoId?: boolean
     type?: boolean
     userid?: boolean
+    createdAt?: boolean
   }
 
-  export type LinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "linkUrl" | "type" | "userid", ExtArgs["result"]["link"]>
+  export type LinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "linkUrl" | "title" | "videoId" | "type" | "userid" | "createdAt", ExtArgs["result"]["link"]>
   export type LinkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     linkrelation?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2350,8 +2396,11 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       linkUrl: string
+      title: string
+      videoId: string | null
       type: $Enums.Type
       userid: number
+      createdAt: Date
     }, ExtArgs["result"]["link"]>
     composites: {}
   }
@@ -2778,8 +2827,11 @@ export namespace Prisma {
   interface LinkFieldRefs {
     readonly id: FieldRef<"Link", 'Int'>
     readonly linkUrl: FieldRef<"Link", 'String'>
+    readonly title: FieldRef<"Link", 'String'>
+    readonly videoId: FieldRef<"Link", 'String'>
     readonly type: FieldRef<"Link", 'Type'>
     readonly userid: FieldRef<"Link", 'Int'>
+    readonly createdAt: FieldRef<"Link", 'DateTime'>
   }
     
 
@@ -3213,7 +3265,8 @@ export namespace Prisma {
     email: 'email',
     username: 'username',
     password: 'password',
-    sharableLink: 'sharableLink'
+    sharableLink: 'sharableLink',
+    createdAt: 'createdAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -3222,8 +3275,11 @@ export namespace Prisma {
   export const LinkScalarFieldEnum: {
     id: 'id',
     linkUrl: 'linkUrl',
+    title: 'title',
+    videoId: 'videoId',
     type: 'type',
-    userid: 'userid'
+    userid: 'userid',
+    createdAt: 'createdAt'
   };
 
   export type LinkScalarFieldEnum = (typeof LinkScalarFieldEnum)[keyof typeof LinkScalarFieldEnum]
@@ -3287,6 +3343,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Type'
    */
   export type EnumTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Type'>
@@ -3326,6 +3396,7 @@ export namespace Prisma {
     username?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     sharableLink?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
     Links?: LinkListRelationFilter
   }
 
@@ -3335,6 +3406,7 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     sharableLink?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
     Links?: LinkOrderByRelationAggregateInput
   }
 
@@ -3347,6 +3419,7 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
     sharableLink?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
     Links?: LinkListRelationFilter
   }, "id" | "email" | "username">
 
@@ -3356,6 +3429,7 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     sharableLink?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -3372,6 +3446,7 @@ export namespace Prisma {
     username?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     sharableLink?: StringNullableWithAggregatesFilter<"User"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type LinkWhereInput = {
@@ -3380,16 +3455,22 @@ export namespace Prisma {
     NOT?: LinkWhereInput | LinkWhereInput[]
     id?: IntFilter<"Link"> | number
     linkUrl?: StringFilter<"Link"> | string
+    title?: StringFilter<"Link"> | string
+    videoId?: StringNullableFilter<"Link"> | string | null
     type?: EnumTypeFilter<"Link"> | $Enums.Type
     userid?: IntFilter<"Link"> | number
+    createdAt?: DateTimeFilter<"Link"> | Date | string
     linkrelation?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type LinkOrderByWithRelationInput = {
     id?: SortOrder
     linkUrl?: SortOrder
+    title?: SortOrder
+    videoId?: SortOrderInput | SortOrder
     type?: SortOrder
     userid?: SortOrder
+    createdAt?: SortOrder
     linkrelation?: UserOrderByWithRelationInput
   }
 
@@ -3399,16 +3480,22 @@ export namespace Prisma {
     OR?: LinkWhereInput[]
     NOT?: LinkWhereInput | LinkWhereInput[]
     linkUrl?: StringFilter<"Link"> | string
+    title?: StringFilter<"Link"> | string
+    videoId?: StringNullableFilter<"Link"> | string | null
     type?: EnumTypeFilter<"Link"> | $Enums.Type
     userid?: IntFilter<"Link"> | number
+    createdAt?: DateTimeFilter<"Link"> | Date | string
     linkrelation?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type LinkOrderByWithAggregationInput = {
     id?: SortOrder
     linkUrl?: SortOrder
+    title?: SortOrder
+    videoId?: SortOrderInput | SortOrder
     type?: SortOrder
     userid?: SortOrder
+    createdAt?: SortOrder
     _count?: LinkCountOrderByAggregateInput
     _avg?: LinkAvgOrderByAggregateInput
     _max?: LinkMaxOrderByAggregateInput
@@ -3422,8 +3509,11 @@ export namespace Prisma {
     NOT?: LinkScalarWhereWithAggregatesInput | LinkScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Link"> | number
     linkUrl?: StringWithAggregatesFilter<"Link"> | string
+    title?: StringWithAggregatesFilter<"Link"> | string
+    videoId?: StringNullableWithAggregatesFilter<"Link"> | string | null
     type?: EnumTypeWithAggregatesFilter<"Link"> | $Enums.Type
     userid?: IntWithAggregatesFilter<"Link"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Link"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -3431,6 +3521,7 @@ export namespace Prisma {
     username: string
     password: string
     sharableLink?: string | null
+    createdAt?: Date | string
     Links?: LinkCreateNestedManyWithoutLinkrelationInput
   }
 
@@ -3440,6 +3531,7 @@ export namespace Prisma {
     username: string
     password: string
     sharableLink?: string | null
+    createdAt?: Date | string
     Links?: LinkUncheckedCreateNestedManyWithoutLinkrelationInput
   }
 
@@ -3448,6 +3540,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     sharableLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Links?: LinkUpdateManyWithoutLinkrelationNestedInput
   }
 
@@ -3457,6 +3550,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     sharableLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Links?: LinkUncheckedUpdateManyWithoutLinkrelationNestedInput
   }
 
@@ -3466,6 +3560,7 @@ export namespace Prisma {
     username: string
     password: string
     sharableLink?: string | null
+    createdAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -3473,6 +3568,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     sharableLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -3481,51 +3577,73 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     sharableLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LinkCreateInput = {
     linkUrl: string
+    title?: string
+    videoId?: string | null
     type?: $Enums.Type
+    createdAt?: Date | string
     linkrelation: UserCreateNestedOneWithoutLinksInput
   }
 
   export type LinkUncheckedCreateInput = {
     id?: number
     linkUrl: string
+    title?: string
+    videoId?: string | null
     type?: $Enums.Type
     userid: number
+    createdAt?: Date | string
   }
 
   export type LinkUpdateInput = {
     linkUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    videoId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     linkrelation?: UserUpdateOneRequiredWithoutLinksNestedInput
   }
 
   export type LinkUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     linkUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    videoId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     userid?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LinkCreateManyInput = {
     id?: number
     linkUrl: string
+    title?: string
+    videoId?: string | null
     type?: $Enums.Type
     userid: number
+    createdAt?: Date | string
   }
 
   export type LinkUpdateManyMutationInput = {
     linkUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    videoId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LinkUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     linkUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    videoId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     userid?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3569,6 +3687,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type LinkListRelationFilter = {
     every?: LinkWhereInput
     some?: LinkWhereInput
@@ -3590,6 +3719,7 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     sharableLink?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -3602,6 +3732,7 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     sharableLink?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -3610,6 +3741,7 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     sharableLink?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -3668,6 +3800,20 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type EnumTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.Type | EnumTypeFieldRefInput<$PrismaModel>
     in?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
@@ -3683,8 +3829,11 @@ export namespace Prisma {
   export type LinkCountOrderByAggregateInput = {
     id?: SortOrder
     linkUrl?: SortOrder
+    title?: SortOrder
+    videoId?: SortOrder
     type?: SortOrder
     userid?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type LinkAvgOrderByAggregateInput = {
@@ -3695,15 +3844,21 @@ export namespace Prisma {
   export type LinkMaxOrderByAggregateInput = {
     id?: SortOrder
     linkUrl?: SortOrder
+    title?: SortOrder
+    videoId?: SortOrder
     type?: SortOrder
     userid?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type LinkMinOrderByAggregateInput = {
     id?: SortOrder
     linkUrl?: SortOrder
+    title?: SortOrder
+    videoId?: SortOrder
     type?: SortOrder
     userid?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type LinkSumOrderByAggregateInput = {
@@ -3741,6 +3896,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type LinkUpdateManyWithoutLinkrelationNestedInput = {
@@ -3836,6 +3995,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3908,6 +4078,20 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedEnumTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.Type | EnumTypeFieldRefInput<$PrismaModel>
     in?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
@@ -3927,13 +4111,19 @@ export namespace Prisma {
 
   export type LinkCreateWithoutLinkrelationInput = {
     linkUrl: string
+    title?: string
+    videoId?: string | null
     type?: $Enums.Type
+    createdAt?: Date | string
   }
 
   export type LinkUncheckedCreateWithoutLinkrelationInput = {
     id?: number
     linkUrl: string
+    title?: string
+    videoId?: string | null
     type?: $Enums.Type
+    createdAt?: Date | string
   }
 
   export type LinkCreateOrConnectWithoutLinkrelationInput = {
@@ -3968,8 +4158,11 @@ export namespace Prisma {
     NOT?: LinkScalarWhereInput | LinkScalarWhereInput[]
     id?: IntFilter<"Link"> | number
     linkUrl?: StringFilter<"Link"> | string
+    title?: StringFilter<"Link"> | string
+    videoId?: StringNullableFilter<"Link"> | string | null
     type?: EnumTypeFilter<"Link"> | $Enums.Type
     userid?: IntFilter<"Link"> | number
+    createdAt?: DateTimeFilter<"Link"> | Date | string
   }
 
   export type UserCreateWithoutLinksInput = {
@@ -3977,6 +4170,7 @@ export namespace Prisma {
     username: string
     password: string
     sharableLink?: string | null
+    createdAt?: Date | string
   }
 
   export type UserUncheckedCreateWithoutLinksInput = {
@@ -3985,6 +4179,7 @@ export namespace Prisma {
     username: string
     password: string
     sharableLink?: string | null
+    createdAt?: Date | string
   }
 
   export type UserCreateOrConnectWithoutLinksInput = {
@@ -4008,6 +4203,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     sharableLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateWithoutLinksInput = {
@@ -4016,29 +4212,42 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     sharableLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LinkCreateManyLinkrelationInput = {
     id?: number
     linkUrl: string
+    title?: string
+    videoId?: string | null
     type?: $Enums.Type
+    createdAt?: Date | string
   }
 
   export type LinkUpdateWithoutLinkrelationInput = {
     linkUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    videoId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LinkUncheckedUpdateWithoutLinkrelationInput = {
     id?: IntFieldUpdateOperationsInput | number
     linkUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    videoId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LinkUncheckedUpdateManyWithoutLinkrelationInput = {
     id?: IntFieldUpdateOperationsInput | number
     linkUrl?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    videoId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

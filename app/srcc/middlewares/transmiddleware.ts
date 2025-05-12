@@ -6,6 +6,7 @@ import { responce } from "../helpers/responce";
 const createTranscript=async (req:Request,res:Response,next:NextFunction) => {
     try {
         const link = linkinterface.parse(req.body);
+        const title=req.body.title;
         const InputData=req.body.Link;
         const input=req.body.type;
         const userId=req.userId
@@ -15,6 +16,7 @@ const createTranscript=async (req:Request,res:Response,next:NextFunction) => {
         }
         const datq=await client.link.create({
             data:{
+                title:title,
                 linkUrl:InputData,
                 type:input,
                 userid:parseInt(userId)

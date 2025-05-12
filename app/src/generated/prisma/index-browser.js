@@ -125,14 +125,18 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   username: 'username',
   password: 'password',
-  sharableLink: 'sharableLink'
+  sharableLink: 'sharableLink',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.LinkScalarFieldEnum = {
   id: 'id',
   linkUrl: 'linkUrl',
+  title: 'title',
+  videoId: 'videoId',
   type: 'type',
-  userid: 'userid'
+  userid: 'userid',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
