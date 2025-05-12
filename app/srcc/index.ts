@@ -1,11 +1,19 @@
 import expres, { application } from "express";
 import { port,Start } from "./helpers/dotenv";
 import cookieParser from "cookie-parser";
-import { connect } from "./db/DBconnect";
+import { connect,connectchroma } from "./db/DBconnect";
 import authRoute from "./routes/Auth.route";
+import LinkRouter from "./routes/Link.route";
 connect();
+connectchroma();
 const app=expres();
-app.use(expres.json())
+app.use((req, res, next) => {
+  if (['POST', 'PUT', 'PATCH'].includes(req.method)) {
+    expres.json()(req, res, next); // Only parse JSON for POST, PUT, PATCH
+  } else {
+    next(); // Skip JSON parsing for GET and other methods
+  }
+});
 app.use(cookieParser())
 app.get(`${Start}/healthcheck`,(req,res)=>{
     console.log("hitting")
@@ -13,6 +21,7 @@ app.get(`${Start}/healthcheck`,(req,res)=>{
     
 })
 app.use(`${Start}/auth`,authRoute)
+app.use(`${Start}/link`,LinkRouter)
 console.log(port)
 app.listen(port|| 4000,()=>{
     console.log("lisening nicely")

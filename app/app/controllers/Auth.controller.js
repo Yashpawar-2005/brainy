@@ -23,14 +23,19 @@ const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const Inputdata = Interface_1.signupinteface.parse(req.body);
         const hassedpassword = yield bcrypt_1.default.hash(Inputdata.password, 4);
+        if (!dotenv_1.JWT_SECRET) {
+            throw new Error("JWT_SECRET is not defined in environment variables");
+        }
+        // jwt.sign()
         const d = yield Client_1.default.user.create({
             data: {
+                // sharableLink:random(10),
                 username: Inputdata.username,
                 password: hassedpassword,
                 email: Inputdata.email
             }
         });
-        const wait = jsonwebtoken_1.default.sign(`${d.id}`, `${dotenv_1.JWT_SECRET}`);
+        const wait = jsonwebtoken_1.default.sign({ userId: d.id }, dotenv_1.JWT_SECRET);
         res.cookie("jwt_token", wait, {
             httpOnly: true,
             secure: true
@@ -71,7 +76,10 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             }));
             return;
         }
-        const token = jsonwebtoken_1.default.sign(`${user.id}`, `${dotenv_1.JWT_SECRET}`);
+        if (!dotenv_1.JWT_SECRET) {
+            throw new Error("JWT_SECRET is not defined in environment variables");
+        }
+        const token = jsonwebtoken_1.default.sign({ userId: user.id }, dotenv_1.JWT_SECRET);
         res.cookie("jwt_token", token, {
             httpOnly: true,
             secure: true

@@ -1,6 +1,13 @@
 
 import { z } from "zod";
 
+declare global {
+  namespace Express {
+    interface Request {
+      userId?: string;
+    }
+  }
+}
 const signupinteface = z.object({
   username: z.string(),
   password:z.string(),
@@ -11,4 +18,13 @@ const signininteface = z.object({
     password:z.string(),
    username:z.string()
   });
-export {signupinteface,signininteface}
+
+const linkinterface = z.object({
+    Link: z.string(),
+    title: z.string(),
+    type:z.string(),
+});
+const deletelinkinterface = z.object({
+    id: z.number()
+});
+export {signupinteface,signininteface,linkinterface,deletelinkinterface}

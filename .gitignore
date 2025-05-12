@@ -144,7 +144,7 @@ docker-compose.yml
 
 # Git itself
 .git/
-
+./app/app
 # Ignore everything in dotfiles, except .gitignore itself
 .*!
 !.gitignore

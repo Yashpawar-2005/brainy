@@ -9,15 +9,20 @@ export const signup=async(req:Request,res:Response)=>{
     try {
         const Inputdata=signupinteface.parse(req.body);
         const hassedpassword=await bcrypt.hash(Inputdata.password,4)
+         if(!JWT_SECRET){
+             throw new Error("JWT_SECRET is not defined in environment variables");
+        }
+        // jwt.sign()
         const d=await client.user.create({
             data:{
+                // sharableLink:random(10),
                 username:Inputdata.username,
                 password:hassedpassword,
                 email:   Inputdata.email
             }
         })
-
-        const wait= jwt.sign(`${d.id}`,`${JWT_SECRET}`)
+        
+        const wait= jwt.sign({ userId: d.id },JWT_SECRET)
      
         res.cookie("jwt_token", wait, {
             httpOnly: true,
@@ -64,8 +69,10 @@ export const login = async (req: Request, res: Response) => {
             }));
             return
         }
-
-        const token = jwt.sign(`${user.id}`, `${JWT_SECRET}`);
+        if(!JWT_SECRET){
+             throw new Error("JWT_SECRET is not defined in environment variables");
+        }
+        const token = jwt.sign({ userId: user.id }, JWT_SECRET);
         res.cookie("jwt_token", token, {
             httpOnly: true,
             secure: true

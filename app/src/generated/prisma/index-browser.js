@@ -124,7 +124,15 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   username: 'username',
-  password: 'password'
+  password: 'password',
+  sharableLink: 'sharableLink'
+};
+
+exports.Prisma.LinkScalarFieldEnum = {
+  id: 'id',
+  linkUrl: 'linkUrl',
+  type: 'type',
+  userid: 'userid'
 };
 
 exports.Prisma.SortOrder = {
@@ -137,9 +145,18 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+exports.Type = exports.$Enums.Type = {
+  Twitter: 'Twitter',
+  Youtube: 'Youtube'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Link: 'Link'
 };
 
 /**

@@ -19,4 +19,20 @@ model User {
   email String  @unique
   username  String @unique
   password String 
+  sharableLink String?
+  Links Link[]
+  createdAt  DateTime @default(now())
+}
+
+model Link{
+  id Int @id @default(autoincrement())
+  linkUrl String
+  type Type @default(Twitter)
+  userid Int
+  linkrelation User @relation(fields: [userid],references: [id])
+  createdAt              DateTime            @default(now())
+}
+enum Type {
+  Twitter
+  Youtube
 }

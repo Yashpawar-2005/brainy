@@ -15,8 +15,23 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  username String @unique
-  password String
+  id           Int     @id @default(autoincrement())
+  email        String  @unique
+  username     String  @unique
+  password     String
+  sharableLink String?
+  Links        Link[]
+}
+
+model Link {
+  id           Int    @id @default(autoincrement())
+  linkUrl      String
+  type         Type   @default(Twitter)
+  userid       Int
+  linkrelation User   @relation(fields: [userid], references: [id])
+}
+
+enum Type {
+  Twitter
+  Youtube
 }
