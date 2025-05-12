@@ -30,6 +30,9 @@ const abstract = async (data = null, link:string, method:string) => {
   }
 };
 
+const query=async (data:any) => {
+  return await abstract(data,"/trans/search","post")
+}
 
 const signup = async (data:any) => {
   return await abstract(data, "/auth/signup", "post");
@@ -41,4 +44,4 @@ const login = async (data:any) => {
 };
 
 
-export {login,signup}
+export {login,signup,query}

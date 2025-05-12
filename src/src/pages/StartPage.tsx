@@ -1,6 +1,6 @@
 import Features from "../ui/Features";
 import Hero from "../ui/Hero";
-import React from 'react'
+
 
 const StartPage = () => {
   return (
