@@ -2,9 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const Link_controller_1 = require("../controllers/Link.controller");
+const transmiddleware_1 = require("../middlewares/transmiddleware");
 const authmiddleware_1 = require("../middlewares/authmiddleware");
 const LinkRouter = (0, express_1.Router)();
-LinkRouter.post("/create", authmiddleware_1.authcheck, Link_controller_1.createLink);
+LinkRouter.post("/create", authmiddleware_1.authcheck, transmiddleware_1.createTranscript, Link_controller_1.createLink);
 LinkRouter.delete("/delete", authmiddleware_1.authcheck, Link_controller_1.deleteLink);
-LinkRouter.get("/get", authmiddleware_1.authcheck, Link_controller_1.gettranscript);
+LinkRouter.get("/get", authmiddleware_1.authcheck, transmiddleware_1.createTranscript);
 exports.default = LinkRouter;

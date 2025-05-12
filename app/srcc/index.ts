@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import { connect,connectchroma } from "./db/DBconnect";
 import authRoute from "./routes/Auth.route";
 import LinkRouter from "./routes/Link.route";
+import transcriptrouter from "./routes/Trascript.route";
 connect();
 connectchroma();
 const app=expres();
@@ -22,6 +23,7 @@ app.get(`${Start}/healthcheck`,(req,res)=>{
 })
 app.use(`${Start}/auth`,authRoute)
 app.use(`${Start}/link`,LinkRouter)
+app.use(`${Start}/trans`,transcriptrouter)
 console.log(port)
 app.listen(port|| 4000,()=>{
     console.log("lisening nicely")
